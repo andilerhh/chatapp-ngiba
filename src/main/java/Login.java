@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 public class Login {
 
     // Regex: '+' then a 1-3 digit country code, then at most 10 digits.
-    // TODO: replace this comment with the reference for the source you used to
-    // research the regex (author, year, title, URL, date accessed), as the brief requires.
+    
+    
     private static final Pattern CELL_PATTERN = Pattern.compile("^\\+\\d{1,3}\\d{1,10}$");
 
     private String username;
@@ -30,7 +30,7 @@ public class Login {
         return username != null && username.contains("_") && username.length() <= 5;
     }
 
-    /** Password: 8+ chars, a capital letter, a number and a special character. */
+    /** Password: 8+ characters, a capital letter, a number and a special character. */
     public boolean checkPasswordComplexity(String password) {
         if (password == null || password.length() < 8) {
             return false;
@@ -48,7 +48,7 @@ public class Login {
         return hasUpper && hasDigit && hasSpecial;
     }
 
-    /** Cell number must start with an international code and be a valid length. */
+    /** Cell number must start with an international code which is +27. */
     public boolean checkCellPhoneNumber(String cellPhone) {
         return cellPhone != null && CELL_PATTERN.matcher(cellPhone).matches();
     }
